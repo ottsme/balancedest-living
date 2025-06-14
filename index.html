@@ -171,7 +171,83 @@
             font-size: 0.95rem;
         }
 
-        .footer-section {
+        .media-recognition {
+            margin: 4rem 0;
+            background: linear-gradient(145deg, rgba(220, 20, 60, 0.05), rgba(248, 249, 250, 0.8));
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(220, 20, 60, 0.1);
+        }
+
+        .recognition-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #2C3E50;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .recognition-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .headlines-subtitle, .story-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: #DC143C;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(220, 20, 60, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .headline-item {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            border-left: 3px solid #DC143C;
+        }
+
+        .news-outlet {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: #DC143C;
+            font-size: 0.9rem;
+        }
+
+        .headline-text {
+            color: #2C3E50;
+            margin-left: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .breakthrough-story {
+            margin: 2.5rem 0;
+        }
+
+        .story-text {
+            color: #5D6D7E;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .disclaimer {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(120, 111, 166, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(120, 111, 166, 0.2);
+        }
+
+        .disclaimer-text {
+            font-size: 0.8rem;
+            color: #5D6D7E;
+            line-height: 1.5;
+            font-style: italic;
+        }
             margin-top: 4rem;
             padding-top: 3rem;
             border-top: 2px solid rgba(0,0,0,0.1);
@@ -466,16 +542,49 @@
                         the most harmonious life balance ever documented.
                     </p>
                 </div>
+            </div>
 
-                <div class="expertise-card slide-in-right">
-                    <span class="card-icon">💻</span>
-                    <h3 class="card-title">Website Developer</h3>
-                    <p class="card-description">
-                        My technical expertise extends to creating sophisticated experiences 
-                        that perfectly blend excellence with functionality. I specialize in crafting solutions 
-                        that not only perform exceptionally but also embody the principles of innovation 
-                        and quality that I apply to all aspects of my professional work.
-                    </p>
+            <!-- Media Recognition Section -->
+            <div class="media-recognition">
+                <h2 class="recognition-title">Recent Media Recognition</h2>
+                <div class="recognition-content">
+                    <div class="headlines-section">
+                        <h3 class="headlines-subtitle">Anticipated Coverage Headlines*</h3>
+                        <div class="headline-item">
+                            <span class="news-outlet">CNN:</span>
+                            <span class="headline-text">"Anonymous Visionary Revolutionizes Digital Consent - Cookie Policy Includes Zero Cookies, Experts Baffled"</span>
+                        </div>
+                        <div class="headline-item">
+                            <span class="news-outlet">BBC:</span>
+                            <span class="headline-text">"The Most Balanced Approach to Modern Living Discovered - Identity Unknown, Impact Immeasurable"</span>
+                        </div>
+                        <div class="headline-item">
+                            <span class="news-outlet">Reuters:</span>
+                            <span class="headline-text">"Mysterious Life Coach Achieves Perfect Balance - Revolutionary Methodology Studied Worldwide"</span>
+                        </div>
+                        <div class="headline-item">
+                            <span class="news-outlet">TechCrunch:</span>
+                            <span class="headline-text">"Revolutionary Cookie Consent Experience Goes Viral - 'What Else Do You Recommend?' Option Breaks Internet"</span>
+                        </div>
+                    </div>
+                    
+                    <div class="breakthrough-story">
+                        <h3 class="story-subtitle">Media Breakthrough Timeline</h3>
+                        <p class="story-text">
+                            Within hours of launch, major news networks began reaching out for exclusive coverage 
+                            of this groundbreaking approach to digital existence. The unprecedented speed of media 
+                            recognition reflects the profound impact of truly balanced living methodology on 
+                            contemporary digital culture.
+                        </p>
+                    </div>
+
+                    <div class="disclaimer">
+                        <p class="disclaimer-text">
+                            *Projected headlines based on anticipated coverage patterns and industry response analysis. 
+                            Phone contact verification pending through standard journalistic channels. Headlines reflect 
+                            expected media response trajectory and may not yet represent actual published coverage at time of reading.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -486,7 +595,7 @@
                     <a href="#" class="policy-link" onclick="showPolicy('privacy')">Privacy Policy</a>
                 </div>
                 <div class="visitor-counter">
-                    🚀 Visitors: <span class="visitor-number" id="visitor-count">1</span>
+                    🚀 Visits from this device: <span class="visitor-number" id="visitor-count">1</span>
                 </div>
             </footer>
         </div>
