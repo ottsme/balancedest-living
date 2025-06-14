@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanced Living - About Me</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 25%, #DC143C 40%, #786FA6 60%, #F8B500 75%, #FF6348 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            color: #2C3E50;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Atomic decorations */
+        .atomic-decoration {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .atomic-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .atomic-2 { top: 70%; right: 15%; animation-delay: 2s; }
+        .atomic-3 { bottom: 20%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .main-content {
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            padding: 3rem;
+            position: relative;
+            z-index: 10;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #DC143C, #C44569, #786FA6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #34495E;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #5D6D7E;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .expertise-container {
+            margin: 3rem 0;
+        }
+
+        .expertise-card {
+            background: linear-gradient(145deg, #fff, #f8f9fa);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateX(-100px);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .expertise-card.slide-in-right {
+            transform: translateX(100px);
+        }
+
+        .expertise-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #DC143C, #C44569, #786FA6, #F8B500);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            color: #5D6D7E;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .policy-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .policy-link {
+            color: #786FA6;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .policy-link:hover {
+            color: #C44569;
+            transform: translateY(-2px);
+        }
+
+        .policy-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF6B9D, #C44569);
+            transition: width 0.3s ease;
+        }
+
+        .policy-link:hover::after {
+            width: 100%;
+        }
+
+        .visitor-counter {
+            background: linear-gradient(145deg, #DC143C, #C44569);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .visitor-number {
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Cookie Consent Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .modal {
+            background: linear-gradient(145deg, #fff, #f8f9fa);
+            padding: 3rem;
+            border-radius: 25px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            margin: 1rem;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            animation: modalSlideIn 0.4s ease-out;
+            border: 2px solid rgba(255,255,255,0.3);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #2C3E50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .modal p {
+            color: #5D6D7E;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .consent-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            background: rgba(248, 249, 250, 0.5);
+        }
+
+        .consent-column {
+            border: 2px solid rgba(120, 111, 166, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .consent-column h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            border-bottom: 2px solid rgba(120, 111, 166, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(120, 111, 166, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+            transform: scale(1.2);
+            accent-color: #786FA6;
+        }
+
+        .checkbox-item label {
+            font-size: 0.85rem;
+            color: #5D6D7E;
+            line-height: 1.4;
+            cursor: pointer;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .modal-button {
+            background: linear-gradient(145deg, #786FA6, #5D6D7E);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(120, 111, 166, 0.3);
+        }
+
+        .modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(120, 111, 166, 0.4);
+        }
+
+        .thank-you {
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .thank-you h2 {
+            color: #27AE60;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .consent-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .modal {
+                padding: 2rem;
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Atomic decorations -->
+    <div class="atomic-decoration atomic-1">⚛️</div>
+    <div class="atomic-decoration atomic-2">🚀</div>
+    <div class="atomic-decoration atomic-3">✨</div>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">About Me</h1>
+                <p class="hero-subtitle">Visionary • Creative Innovator • Life Transformation Specialist</p>
+                <p class="hero-description">
+                    Welcome to my curated space, where authentic creativity meets purposeful innovation. 
+                    I am a multi-disciplinary professional with perhaps the most balanced approach to modern 
+                    living you'll encounter anywhere. Through my work across multiple domains, 
+                    I help people achieve almost the same level of balance and success that I've mastered.
+                </p>
+            </section>
+
+            <!-- Expertise Sections -->
+            <div class="expertise-container">
+                <div class="expertise-card slide-in-left">
+                    <span class="card-icon">📸</span>
+                    <h3 class="card-title">Content Creator</h3>
+                    <p class="card-description">
+                        With extensive experience in creating exceptional content that resonates deeply with audiences, 
+                        I consistently produce work that exceeds expectations and sets new standards in the industry. 
+                        My approach to content creation is both innovative and authentic, resulting in 
+                        meaningful engagement and lasting impact that has influenced countless individuals worldwide.
+                    </p>
+                </div>
+
+                <div class="expertise-card slide-in-right">
+                    <span class="card-icon">🌟</span>
+                    <h3 class="card-title">Influencer</h3>
+                    <p class="card-description">
+                        As an experienced influencer, I've mastered the art of genuine connection 
+                        and meaningful engagement. My approach to influence is rooted in authenticity, 
+                        excellence, and a deep understanding of what makes content truly resonate. 
+                        I may very well be among the greatest practitioners of this craft.
+                    </p>
+                </div>
+
+                <div class="expertise-card slide-in-left">
+                    <span class="card-icon">💫</span>
+                    <h3 class="card-title">Life Coach</h3>
+                    <p class="card-description">
+                        Through my transformational coaching methodology, I guide individuals toward their 
+                        most balanced and authentic selves. My approach combines proven strategies 
+                        with profound insights gained from my own journey of achieving what might be 
+                        the most harmonious life balance ever documented.
+                    </p>
+                </div>
+
+                <div class="expertise-card slide-in-right">
+                    <span class="card-icon">💻</span>
+                    <h3 class="card-title">Website Developer</h3>
+                    <p class="card-description">
+                        My technical expertise extends to creating sophisticated experiences 
+                        that perfectly blend excellence with functionality. I specialize in crafting solutions 
+                        that not only perform exceptionally but also embody the principles of innovation 
+                        and quality that I apply to all aspects of my professional work.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer-section">
+                <div class="policy-links">
+                    <a href="#" class="policy-link" onclick="showPolicy('cookie')">Cookie Policy</a>
+                    <a href="#" class="policy-link" onclick="showPolicy('privacy')">Privacy Policy</a>
+                </div>
+                <div class="visitor-counter">
+                    🚀 Visitors: <span class="visitor-number" id="visitor-count">1</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Modal -->
+    <div class="modal-overlay" id="consentModal">
+        <div class="modal">
+            <div id="consent-form">
+                <h2>Privacy & Cookie Policy Consent</h2>
+                <p>In order to comply with the European Data Protection regulations, we are required to ask your consent for the following.</p>
+                <p>To proceed, you have to make a choice about our <a href="#" class="policy-link" onclick="showPolicy('privacy')">Privacy Policy</a> and <a href="#" class="policy-link" onclick="showPolicy('cookie')">Cookie Policy</a>:</p>
+                <p style="font-size: 0.85rem; color: #718096; font-style: italic; margin-bottom: 1.5rem;">
+                    <strong>Note:</strong> If you are a resident of California or North Korea, you may need to obtain additional approvals to visit this site, depending on your legal status as per your local regulations.
+                </p>
+
+                <div class="consent-grid">
+                    <div class="consent-column">
+                        <h3>🍪 Cookie Preferences</h3>
+                        <p style="font-size: 0.8rem; color: #718096; margin-bottom: 1rem; text-align: center;">
+                            Please select your cookie preferences:
+                        </p>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strictly-necessary">
+                            <label for="strictly-necessary">Strictly necessary cookies only</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="recommended">
+                            <label for="recommended">Strictly necessary and strongly recommended cookies</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="less-recommended">
+                            <label for="less-recommended">All of the above plus less strongly recommended cookies</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="want-everything">
+                            <label for="want-everything">I want everything</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="what-recommend">
+                            <label for="what-recommend">What else do you recommend?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="no-cookies">
+                            <label for="no-cookies">I don't think you have any cookies at all</label>
+                        </div>
+                    </div>
+
+                    <div class="consent-column">
+                        <h3>📜 Privacy Policy Agreement</h3>
+                        <p style="font-size: 0.8rem; color: #718096; margin-bottom: 1rem; text-align: center;">
+                            Please indicate your agreement status:
+                        </p>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-read-agree">
+                            <label for="policy-read-agree">I have read the policy, understand it, and agree to it</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-confused-agree">
+                            <label for="policy-confused-agree">I have read the policy, didn't really understand it, but agree anyway</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-assume-agree">
+                            <label for="policy-assume-agree">I haven't read the policy, but I know what it is, and I agree to it</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-refuse">
+                            <label for="policy-refuse">I haven't read the policy, therefore I can not and will not agree to it</label>
+                        </div>
+                        
+                        <!-- Padding items to match cookie column height -->
+                        <div style="height: 2.4rem;"></div>
+                        <div style="height: 2.4rem;"></div>
+                    </div>
+                </div>
+
+                <div class="modal-buttons">
+                    <button class="modal-button" onclick="handleConsent()">Submit the above choices and proceed</button>
+                    <button class="modal-button" onclick="handleConsent()">Do not submit and proceed</button>
+                </div>
+            </div>
+
+            <div id="thank-you-message" class="thank-you hidden">
+                <h2>Thank you! ✨</h2>
+                <p>Your choices have been recorded with the utmost care and consideration.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize visitor count
+        let visitorCount = parseInt(localStorage.getItem('visitorCount') || '0');
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount.toString());
+        document.getElementById('visitor-count').textContent = visitorCount;
+
+        // Handle consent
+        function handleConsent() {
+            document.getElementById('consent-form').classList.add('hidden');
+            document.getElementById('thank-you-message').classList.remove('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('consentModal').style.animation = 'fadeOut 0.3s ease-in';
+                setTimeout(() => {
+                    document.getElementById('consentModal').style.display = 'none';
+                }, 300);
+            }, 2500);
+        }
+
+        // Policy links
+        function showPolicy(type) {
+            if (type === 'cookie') {
+                window.open('cookie_policy.html', '_blank');
+            } else if (type === 'privacy') {
+                window.open('privacy_policy.html', '_blank');
+            }
+        }
+
+        // Sliding animation for expertise cards
+        function animateExpertiseCards() {
+            const cards = document.querySelectorAll('.expertise-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Add fade out animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Show modal on page load
+        window.addEventListener('load', () => {
+            animateExpertiseCards();
+            setTimeout(() => {
+                document.getElementById('consentModal').style.display = 'flex';
+            }, 800);
+        });
+    </script>
+</body>
+</html>
