@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Balanced Living - About Me</title>
     <style>
-        :root {
-            --crimson: #DC143C;
-            --cream: #FFF8F0;
-            --dark-blue: #2C3E50;
-            --gold: #FFD700;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -21,524 +15,804 @@
 
         body {
             font-family: 'Space Mono', monospace;
-            background: linear-gradient(135deg, var(--cream) 0%, #F0E6D6 100%);
-            color: var(--dark-blue);
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 25%, #DC143C 40%, #786FA6 60%, #F8B500 75%, #FF6348 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
             min-height: 100vh;
-            border: 15px solid var(--crimson);
+            color: #2C3E50;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
             position: relative;
         }
 
-        /* Mobile-first responsive design */
-        .container {
-            max-width: 100%;
-            padding: 20px 15px;
-            margin: 0 auto;
-            background: radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--crimson);
-            text-align: center;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tagline {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--dark-blue);
-            letter-spacing: 1px;
-        }
-
-        .intro {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            text-align: justify;
-        }
-
-        .expertise {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .expertise-item {
-            background: rgba(255, 255, 255, 0.7);
-            border: 2px solid var(--crimson);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .expertise-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .expertise-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--crimson);
-            margin-bottom: 10px;
-        }
-
-        .expertise-description {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .media-section {
-            background: rgba(255, 255, 255, 0.8);
-            border: 2px solid var(--gold);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .media-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            color: var(--crimson);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .media-subtitle {
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--dark-blue);
-        }
-
-        .media-content {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .disclaimer {
-            font-size: 0.8rem;
-            font-style: italic;
-            color: #666;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-top: 2px solid var(--crimson);
-            margin-top: 30px;
-            font-size: 0.85rem;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .footer-links {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .footer a {
-            color: var(--crimson);
-            text-decoration: none;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--dark-blue);
-            text-decoration: underline;
-        }
-
-        .visitor-counter {
-            color: var(--dark-blue);
-            font-weight: 700;
-        }
-
+        /* Atomic decorations */
         .atomic-decoration {
-            position: absolute;
-            opacity: 0.3;
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1;
             animation: float 6s ease-in-out infinite;
-            pointer-events: none;
+            z-index: 1;
         }
 
-        .atomic-decoration:nth-child(1) {
-            top: 10%;
-            left: 5%;
-            animation-delay: 0s;
-        }
-
-        .atomic-decoration:nth-child(2) {
-            top: 60%;
-            right: 8%;
-            animation-delay: 2s;
-        }
-
-        .atomic-decoration:nth-child(3) {
-            bottom: 20%;
-            left: 10%;
-            animation-delay: 4s;
-        }
+        .atomic-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .atomic-2 { top: 70%; right: 15%; animation-delay: 2s; }
+        .atomic-3 { bottom: 20%; left: 20%; animation-delay: 4s; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
         }
 
-        /* Cookie consent styles */
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(44, 62, 80, 0.95);
-            color: white;
-            padding: 20px;
-            z-index: 1000;
+        .main-content {
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
             backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
-        .cookie-content {
-            max-width: 1200px;
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #DC143C, #C44569, #786FA6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #34495E;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #5D6D7E;
+            line-height: 1.8;
             margin: 0 auto;
         }
 
-        .cookie-title {
+        .expertise-container {
+            margin: 2rem 0;
+        }
+
+        .expertise-card {
+            background: linear-gradient(145deg, #fff, #f8f9fa);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(-100px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .expertise-card.slide-in-right {
+            transform: translateX(100px);
+        }
+
+        .expertise-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #DC143C, #C44569, #786FA6, #F8B500);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--gold);
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
-        .cookie-form {
+        .card-description {
+            color: #5D6D7E;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .media-recognition {
+            margin: 3rem 0;
+            background: linear-gradient(145deg, rgba(220, 20, 60, 0.05), rgba(248, 249, 250, 0.8));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(220, 20, 60, 0.1);
+        }
+
+        .recognition-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #2C3E50;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .recognition-content {
+            margin: 0 auto;
+        }
+
+        .headlines-subtitle, .story-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #DC143C;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(220, 20, 60, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .headline-item {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            border-left: 3px solid #DC143C;
+        }
+
+        .news-outlet {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: #DC143C;
+            font-size: 0.9rem;
+        }
+
+        .headline-text {
+            color: #2C3E50;
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .breakthrough-story {
+            margin: 2rem 0;
+        }
+
+        .story-text {
+            color: #5D6D7E;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .disclaimer {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(120, 111, 166, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(120, 111, 166, 0.2);
+        }
+
+        .disclaimer-text {
+            font-size: 0.8rem;
+            color: #5D6D7E;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .footer-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .policy-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .policy-link {
+            color: #786FA6;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .policy-link:hover {
+            color: #C44569;
+            transform: translateY(-2px);
+        }
+
+        .policy-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF6B9D, #C44569);
+            transition: width 0.3s ease;
+        }
+
+        .policy-link:hover::after {
+            width: 100%;
+        }
+
+        .policy-separator {
+            color: #786FA6;
+            font-weight: 700;
+        }
+
+        .visitor-counter {
+            background: linear-gradient(145deg, #DC143C, #C44569);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .visitor-number {
+            font-size: 1.1rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Cookie Consent Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            padding: 1rem 0;
+        }
+
+        .modal {
+            background: linear-gradient(145deg, #fff, #f8f9fa);
+            padding: 2rem;
+            border-radius: 25px;
+            max-width: 90%;
+            width: 100%;
+            max-height: 90vh;
+            margin: 1rem;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+            animation: modalSlideIn 0.4s ease-out;
+            border: 2px solid rgba(255,255,255,0.3);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #2C3E50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .modal p {
+            color: #5D6D7E;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .consent-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            background: rgba(248, 249, 250, 0.5);
         }
 
-        .form-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px;
+        .consent-column {
+            border: 2px solid rgba(120, 111, 166, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            background: white;
         }
 
-        .form-section h3 {
+        .consent-column h3 {
             font-family: 'Orbitron', sans-serif;
-            color: var(--gold);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            border-bottom: 2px solid rgba(120, 111, 166, 0.3);
+            padding-bottom: 0.5rem;
         }
 
         .checkbox-item {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.2s ease;
         }
 
-        .checkbox-item input {
+        .checkbox-item:hover {
+            background: rgba(120, 111, 166, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
             transform: scale(1.2);
+            accent-color: #786FA6;
         }
 
         .checkbox-item label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            color: #5D6D7E;
+            line-height: 1.4;
             cursor: pointer;
         }
 
-        .cookie-buttons {
+        .modal-buttons {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 12px 24px;
+        .modal-button {
+            background: linear-gradient(145deg, #786FA6, #5D6D7E);
+            color: white;
             border: none;
-            border-radius: 5px;
-            font-family: 'Orbitron', sans-serif;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Space Mono', monospace;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(120, 111, 166, 0.3);
             font-size: 0.9rem;
         }
 
-        .btn-primary {
-            background: var(--crimson);
-            color: white;
+        .modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(120, 111, 166, 0.4);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
+        .thank-you {
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        .thank-you h2 {
+            color: #27AE60;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hidden {
+            display: none;
         }
 
         /* Tablet styles */
         @media (min-width: 768px) {
-            body {
-                border-width: 20px;
-            }
-
             .container {
-                padding: 40px 30px;
+                padding: 2rem;
             }
 
-            h1 {
+            .main-content {
+                padding: 3rem;
+            }
+
+            .hero-title {
                 font-size: 3.5rem;
-                margin-bottom: 20px;
             }
 
-            .tagline {
-                font-size: 1.2rem;
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
 
-            .intro {
-                font-size: 1.2rem;
-                margin-bottom: 50px;
+            .hero-description {
+                font-size: 1.1rem;
+                max-width: 800px;
             }
 
-            .expertise {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
+            .expertise-card {
+                padding: 2.5rem;
+                margin-bottom: 3rem;
+                max-width: 800px;
             }
 
-            .expertise-item {
-                padding: 25px;
-            }
-
-            .expertise-title {
+            .card-title {
                 font-size: 1.4rem;
             }
 
-            .media-section {
-                padding: 30px;
+            .media-recognition {
+                margin: 4rem 0;
+                padding: 3rem;
             }
 
-            .cookie-form {
+            .recognition-title {
+                font-size: 1.8rem;
+            }
+
+            .recognition-content {
+                max-width: 800px;
+            }
+
+            .headlines-subtitle, .story-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .headline-text {
+                font-size: 0.95rem;
+            }
+
+            .story-text {
+                font-size: 1rem;
+            }
+
+            .consent-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                padding: 2rem;
             }
 
-            .footer {
-                font-size: 0.9rem;
+            .modal {
+                max-width: 800px;
+                padding: 3rem;
+            }
+
+            .modal h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-section {
+                margin-top: 4rem;
+                padding-top: 3rem;
+                gap: 2rem;
+            }
+
+            .policy-links {
+                gap: 2rem;
+            }
+
+            .visitor-counter {
+                padding: 1rem 2rem;
+            }
+
+            .visitor-number {
+                font-size: 1.2rem;
             }
         }
 
         /* Desktop styles */
         @media (min-width: 1024px) {
-            body {
-                border-width: 25px;
-            }
-
-            .container {
-                max-width: 1200px;
-                padding: 60px 40px;
-            }
-
-            h1 {
-                font-size: 4rem;
-            }
-
-            .tagline {
-                font-size: 1.3rem;
-            }
-
-            .intro {
-                font-size: 1.3rem;
-                margin-bottom: 60px;
-            }
-
-            .expertise {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 35px;
-            }
-
-            .expertise-item {
-                padding: 30px;
-            }
-
-            .media-section {
-                padding: 35px;
-            }
-
-            .footer {
+            .footer-section {
                 flex-wrap: nowrap;
+            }
+
+            .modal-buttons {
+                flex-wrap: nowrap;
+            }
+
+            .modal-button {
+                padding: 1rem 2rem;
             }
         }
 
-        /* Large desktop */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px;
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="atomic-decoration">⚛️</div>
-    <div class="atomic-decoration">🚀</div>
-    <div class="atomic-decoration">✨</div>
+    <!-- Atomic decorations -->
+    <div class="atomic-decoration atomic-1">⚛️</div>
+    <div class="atomic-decoration atomic-2">🚀</div>
+    <div class="atomic-decoration atomic-3">✨</div>
 
     <div class="container">
-        <h1>Me</h1>
-        <div class="tagline">Visionary • Creative Innovator • Life Transformation Specialist</div>
-        
-        <div class="intro">
-            Welcome to my curated space, where authentic creativity meets purposeful innovation. I am a multi-disciplinary professional with perhaps the most balanced approach to modern living you'll encounter anywhere. Through my work across multiple domains, I help people achieve almost the same level of balance and success that I've mastered.
-        </div>
+        <div class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">About Me</h1>
+                <p class="hero-subtitle">Visionary • Creative Innovator • Life Transformation Specialist</p>
+                <p class="hero-description">
+                    Welcome to my curated space, where authentic creativity meets purposeful innovation. 
+                    I am a multi-disciplinary professional with perhaps the most balanced approach to modern 
+                    living you'll encounter anywhere. Through my work across multiple domains, 
+                    I help people achieve almost the same level of balance and success that I've mastered.
+                </p>
+            </section>
 
-        <div class="expertise">
-            <div class="expertise-item">
-                <div class="expertise-icon">📸</div>
-                <div class="expertise-title">Content Creator</div>
-                <div class="expertise-description">
-                    With extensive experience in creating exceptional content that resonates deeply with audiences, I consistently produce work that exceeds expectations and sets new standards in digital storytelling.
+            <!-- Expertise Sections -->
+            <div class="expertise-container">
+                <div class="expertise-card slide-in-left">
+                    <span class="card-icon">📸</span>
+                    <h3 class="card-title">Content Creator</h3>
+                    <p class="card-description">
+                        With extensive experience in creating exceptional content that resonates deeply with audiences, 
+                        I consistently produce work that exceeds expectations and sets new standards in the industry. 
+                        My approach to content creation is both innovative and authentic, resulting in 
+                        meaningful engagement and lasting impact that has influenced countless individuals worldwide.
+                    </p>
+                </div>
+
+                <div class="expertise-card slide-in-right">
+                    <span class="card-icon">🌟</span>
+                    <h3 class="card-title">Influencer</h3>
+                    <p class="card-description">
+                        As an experienced influencer, I've mastered the art of genuine connection 
+                        and meaningful engagement. My approach to influence is rooted in authenticity, 
+                        excellence, and a deep understanding of what makes content truly resonate. 
+                        I may very well be among the greatest practitioners of this craft.
+                    </p>
+                </div>
+
+                <div class="expertise-card slide-in-left">
+                    <span class="card-icon">💫</span>
+                    <h3 class="card-title">Life Coach</h3>
+                    <p class="card-description">
+                        Through my transformational coaching methodology, I guide individuals toward their 
+                        most balanced and authentic selves. My approach combines proven strategies 
+                        with profound insights gained from my own journey of achieving what might be 
+                        the most harmonious life balance ever documented.
+                    </p>
                 </div>
             </div>
 
-            <div class="expertise-item">
-                <div class="expertise-icon">✨</div>
-                <div class="expertise-title">Influencer</div>
-                <div class="expertise-description">
-                    Through authentic engagement and innovative approaches to digital influence, I've established what may very well be among the most genuine connections with audiences in the industry.
+            <!-- Media Recognition Section -->
+            <div class="media-recognition">
+                <h2 class="recognition-title">Recent Media Recognition</h2>
+                <div class="recognition-content">
+                    <div class="headlines-section">
+                        <h3 class="headlines-subtitle">Anticipated Coverage Headlines*</h3>
+                        <div class="headline-item">
+                            <span class="news-outlet">CNN:</span>
+                            <span class="headline-text">"Anonymous Visionary Revolutionizes Digital Consent - Cookie Policy Includes Zero Cookies, Experts Baffled"</span>
+                        </div>
+                        <div class="headline-item">
+                            <span class="news-outlet">BBC:</span>
+                            <span class="headline-text">"The Most Balanced Approach to Modern Living Discovered - Identity Unknown, Impact Immeasurable"</span>
+                        </div>
+                        <div class="headline-item">
+                            <span class="news-outlet">Reuters:</span>
+                            <span class="headline-text">"Mysterious Life Coach Achieves Perfect Balance - Revolutionary Methodology Studied Worldwide"</span>
+                        </div>
+                        <div class="headline-item">
+                            <span class="news-outlet">TechCrunch:</span>
+                            <span class="headline-text">"Revolutionary Cookie Consent Experience Goes Viral - 'What Else Do You Recommend?' Option Breaks Internet"</span>
+                        </div>
+                    </div>
+                    
+                    <div class="breakthrough-story">
+                        <h3 class="story-subtitle">Media Breakthrough Timeline**</h3>
+                        <p class="story-text">
+                            Within hours of launch, major news networks began reaching out for exclusive coverage 
+                            of this groundbreaking approach to digital existence. The unprecedented speed of media 
+                            recognition reflects the profound impact of truly balanced living methodology on 
+                            contemporary digital culture.
+                        </p>
+                    </div>
+
+                    <div class="disclaimer">
+                        <p class="disclaimer-text">
+                            *Projected headlines based on anticipated coverage patterns and industry response analysis. 
+                            Headlines reflect expected media response trajectory and may not yet represent actual published coverage at time of reading.
+                        </p>
+                        <p class="disclaimer-text" style="margin-top: 1rem;">
+                            **Based on an unanswered phone call from an undisclosed number. Possibly CNN investigative journalism unit. 
+                            Phone contact verification pending through standard journalistic channels.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <div class="expertise-item">
-                <div class="expertise-icon">🎯</div>
-                <div class="expertise-title">Life Coach</div>
-                <div class="expertise-description">
-                    My transformational coaching methodology has guided countless individuals toward achieving their most balanced and successful selves through proven techniques and personalized strategies.
+            <!-- Footer -->
+            <footer class="footer-section">
+                <div class="policy-links">
+                    <a href="#" class="policy-link" onclick="showPolicy('cookie')">Cookie Policy</a>
+                    <span class="policy-separator">|</span>
+                    <a href="#" class="policy-link" onclick="showPolicy('privacy')">Privacy Policy</a>
                 </div>
-            </div>
-        </div>
-
-        <div class="media-section">
-            <div class="media-title">Recent Media Recognition</div>
-            
-            <div class="media-subtitle">Anticipated Coverage Headlines*</div>
-            <div class="media-content">
-                "Revolutionary Digital Balance Expert Transforms Industry Standards"<br>
-                "The Anonymous Visionary Redefining Success in Multiple Domains"<br>
-                "Breaking: Most Balanced Professional Approach Ever Documented"
-            </div>
-
-            <div class="media-subtitle">Media Breakthrough Timeline**</div>
-            <div class="media-content">
-                Within hours of launch, major news networks began reaching out for exclusive coverage of this groundbreaking approach to digital existence. The unprecedented speed of media recognition reflects the profound impact of truly balanced living methodology on contemporary digital culture.
-            </div>
-
-            <div class="disclaimer">
-                *Projected headlines based on anticipated coverage patterns and industry response analysis. Headlines reflect expected media response trajectory and may not yet represent actual published coverage at time of reading.<br><br>
-                **Based on an unanswered phone call from an undisclosed number. Possibly CNN investigative journalism unit. Phone contact verification pending through standard journalistic channels.
-            </div>
+                <div class="visitor-counter">
+                    🚀 Visits from this device: <span class="visitor-number" id="visitor-count">1</span>
+                </div>
+            </footer>
         </div>
     </div>
 
-    <div class="footer">
-        <div class="footer-links">
-            <a onclick="showPolicy('cookie')">Cookie Policy</a>
-            <span>|</span>
-            <a onclick="showPolicy('privacy')">Privacy Policy</a>
-        </div>
-        <div class="visitor-counter">
-            Visits from this device: <span id="visitor-count">1</span>
-        </div>
-    </div>
+    <!-- Cookie Consent Modal -->
+    <div class="modal-overlay" id="consentModal">
+        <div class="modal">
+            <div id="consent-form">
+                <h2>Privacy & Cookie Policy Consent</h2>
+                <p>In order to comply with the European Data Protection regulations, we are required to ask your consent for the following.</p>
+                <p>To proceed, you have to make a choice about our <a href="#" class="policy-link" onclick="showPolicy('privacy')">Privacy Policy</a> and <a href="#" class="policy-link" onclick="showPolicy('cookie')">Cookie Policy</a>:</p>
+                <p style="font-size: 0.85rem; color: #718096; font-style: italic; margin-bottom: 1.5rem;">
+                    <strong>Note:</strong> If you are a resident of California or North Korea, you may need to obtain additional approvals to visit this site, depending on your legal status as per your local regulations.
+                </p>
 
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-title">🍪 Cookie Preferences & Privacy Agreement</div>
-            <p style="margin-bottom: 20px; font-size: 0.95rem;">We believe in transparency and giving you complete control over your digital experience. Please select your preferences below.</p>
-            
-            <div class="cookie-form">
-                <div class="form-section">
-                    <h3>Cookie Preferences</h3>
-                    <div class="checkbox-group">
+                <div class="consent-grid">
+                    <div class="consent-column">
+                        <h3>🍪 Cookie Preferences</h3>
+                        <p style="font-size: 0.8rem; color: #718096; margin-bottom: 1rem; text-align: center;">
+                            Please select your cookie preferences:
+                        </p>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="strictly-necessary" name="cookies" value="strictly-necessary">
-                            <label for="strictly-necessary">Strictly necessary only</label>
+                            <input type="checkbox" id="strictly-necessary">
+                            <label for="strictly-necessary">Strictly necessary cookies only</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="performance" name="cookies" value="performance">
-                            <label for="performance">Performance and analytics</label>
+                            <input type="checkbox" id="recommended">
+                            <label for="recommended">Strictly necessary and strongly recommended cookies</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="functional" name="cookies" value="functional">
-                            <label for="functional">Functional enhancements</label>
+                            <input type="checkbox" id="less-recommended">
+                            <label for="less-recommended">All of the above plus less strongly recommended cookies</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="targeting" name="cookies" value="targeting">
-                            <label for="targeting">Targeting and advertising</label>
+                            <input type="checkbox" id="want-everything">
+                            <label for="want-everything">I want everything</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="no-cookies" name="cookies" value="no-cookies">
+                            <input type="checkbox" id="what-recommend">
+                            <label for="what-recommend">What else do you recommend?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="no-cookies">
                             <label for="no-cookies">I don't think you have any cookies at all</label>
                         </div>
                     </div>
+
+                    <div class="consent-column">
+                        <h3>📜 Privacy Policy Agreement</h3>
+                        <p style="font-size: 0.8rem; color: #718096; margin-bottom: 1rem; text-align: center;">
+                            Please indicate your agreement status:
+                        </p>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-read-agree">
+                            <label for="policy-read-agree">I have read the policy, understand it, and agree to it</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-confused-agree">
+                            <label for="policy-confused-agree">I have read the policy, didn't really understand it, but agree anyway</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-assume-agree">
+                            <label for="policy-assume-agree">I haven't read the policy, but I know what it is, and I agree to it</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="policy-refuse">
+                            <label for="policy-refuse">I haven't read the policy, therefore I can not and will not agree to it</label>
+                        </div>
+                        
+                        <!-- Padding items to match cookie column height -->
+                        <div style="height: 2.4rem;"></div>
+                        <div style="height: 2.4rem;"></div>
+                    </div>
                 </div>
 
-                <div class="form-section">
-                    <h3>Privacy Policy Agreement</h3>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="privacy-read" name="privacy" value="privacy-read">
-                            <label for="privacy-read">I have read and understand the privacy policy</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="privacy-agree" name="privacy" value="privacy-agree">
-                            <label for="privacy-agree">I agree to the privacy policy terms</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="data-processing" name="privacy" value="data-processing">
-                            <label for="data-processing">I consent to data processing as described</label>
-                        </div>
-                    </div>
+                <div class="modal-buttons">
+                    <button class="modal-button" onclick="handleConsent()">Submit the above choices and proceed</button>
+                    <button class="modal-button" onclick="handleConsent()">Do not submit and proceed</button>
                 </div>
             </div>
 
-            <div class="cookie-buttons">
-                <button class="btn btn-primary" onclick="submitPreferences()">Submit the above choices and proceed</button>
-                <button class="btn btn-secondary" onclick="proceedWithoutSubmitting()">Do not submit and proceed</button>
+            <div id="thank-you-message" class="thank-you hidden">
+                <h2>Thank you! ✨</h2>
+                <p>Your choices have been recorded with the utmost care and consideration.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Visitor counter
+        // Initialize visitor count
         let visitorCount = parseInt(localStorage.getItem('visitorCount') || '0');
         visitorCount++;
         localStorage.setItem('visitorCount', visitorCount.toString());
         document.getElementById('visitor-count').textContent = visitorCount;
 
-        // Policy functions
+        // Handle consent
+        function handleConsent() {
+            document.getElementById('consent-form').classList.add('hidden');
+            document.getElementById('thank-you-message').classList.remove('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('consentModal').style.animation = 'fadeOut 0.3s ease-in';
+                setTimeout(() => {
+                    document.getElementById('consentModal').style.display = 'none';
+                }, 300);
+            }, 2500);
+        }
+
+        // Policy links
         function showPolicy(type) {
             if (type === 'cookie') {
                 window.open('cookie_policy.html', '_blank');
@@ -547,23 +821,22 @@
             }
         }
 
-        // Cookie consent functions
-        function submitPreferences() {
-            // In a real implementation, you would process the selections here
-            document.getElementById('cookieConsent').style.display = 'none';
-        }
+        // Sliding animation for expertise cards
+        function animateExpertiseCards() {
+            const cards = document.querySelectorAll('.expertise-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
 
-        function proceedWithoutSubmitting() {
-            document.getElementById('cookieConsent').style.display = 'none';
-        }
-
-        // Show cookie consent on page load
-        window.addEventListener('load', function() {
-            // Show consent after a brief delay for better UX
-            setTimeout(() => {
-                document.getElementById('cookieConsent').style.display = 'block';
-            }, 1500);
-        });
-    </script>
-</body>
-</html>
+            cards.forEach(card => {
+                observer.observe(card);
+            });
