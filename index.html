@@ -840,3 +840,15 @@
             cards.forEach(card => {
                 observer.observe(card);
             });
+        }
+
+        // Show modal on page load
+        window.addEventListener('load', () => {
+            animateExpertiseCards();
+            setTimeout(() => {
+                document.getElementById('consentModal').style.display = 'flex';
+            }, 800);
+        });
+    </script>
+</body>
+</html>
