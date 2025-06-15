@@ -20,7 +20,7 @@
             animation: gradientShift 8s ease infinite;
             min-height: 100vh;
             color: #2C3E50;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         @keyframes gradientShift {
@@ -38,13 +38,13 @@
             box-shadow: 
                 0 25px 50px rgba(0,0,0,0.2),
                 inset 0 1px 0 rgba(255,255,255,0.8);
-            padding: 3rem;
+            padding: 2rem;
             border: 2px solid rgba(255,255,255,0.3);
         }
 
         .policy-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             background: linear-gradient(45deg, #DC143C, #C44569, #786FA6);
             background-clip: text;
@@ -56,12 +56,12 @@
         }
 
         .policy-section {
-            margin: 2.5rem 0;
+            margin: 2rem 0;
         }
 
         .section-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #2C3E50;
             margin-bottom: 1rem;
             border-bottom: 2px solid #DC143C;
@@ -71,7 +71,7 @@
         .policy-text {
             color: #5D6D7E;
             line-height: 1.7;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
 
@@ -87,24 +87,51 @@
         .highlight-box h3 {
             font-family: 'Orbitron', sans-serif;
             color: #DC143C;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
         }
 
         .highlight-box p {
             color: #2C3E50;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
         }
 
-        @media (max-width: 768px) {
-            .policy-container {
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            body {
                 padding: 2rem;
-                margin: 1rem;
+            }
+
+            .policy-container {
+                padding: 3rem;
             }
             
             .policy-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .policy-text {
+                font-size: 1rem;
+            }
+
+            .highlight-box h3 {
+                font-size: 1.5rem;
+            }
+
+            .highlight-box p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            .policy-section {
+                margin: 2.5rem 0;
             }
         }
     </style>
